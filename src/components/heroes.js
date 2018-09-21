@@ -10,9 +10,16 @@ class HeroesComponent extends Component {
             name: "Windstorm",
             id :1
         }
+
+        this.handleChange.bind(this)
     }
 
+    handleChange(newName) {
+        this.setState({
+            name: newName
+        })
 
+    }
 
   render() {
     return (
@@ -20,9 +27,9 @@ class HeroesComponent extends Component {
       <h2>{this.state.name} Details</h2>
       <div><span>id: </span>{this.state.id}</div>
       <div>
-          <label>name:</label>
-          <input type =" text" value = {this.state.name}/>
-
+          <label>name:
+          <input type ="text" value = {this.state.name} onChange = {e => this.handleChange(e.target.value)} placeholder = "name" />
+          </label>
       </div>
 
         

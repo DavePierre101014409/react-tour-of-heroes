@@ -11,6 +11,15 @@ constructor(props){
   this.state = {
     title : "Tour of Heroes"
   }
+  this.handleChange.bind(this)
+
+}
+
+handleChange(event) {
+    this.setState({
+      title: event.target.value
+    })
+
 }
 
   render() {

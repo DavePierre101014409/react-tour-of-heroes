@@ -11,8 +11,6 @@ class HeroesComponent extends Component {
         super(props);
         this.state ={
 
-            
-
             heroes : HEROES,
 
             selectedHero :{}
@@ -75,13 +73,13 @@ class HeroesComponent extends Component {
 
   render() {
 
-    const heroesItems = this.renderHeroList()
+
    
     return (
       <div>
       <div >
           <ul className= "heroes">
-              {heroesItems}
+              {this.renderHeroList()}
           </ul>
        
       </div>

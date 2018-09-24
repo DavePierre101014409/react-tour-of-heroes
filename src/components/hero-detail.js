@@ -9,13 +9,8 @@ class HeroDetail extends Component {
     
       
         
-
-
-
-
-    
-  render() {
-        const selectedHeroDetail =  <div>
+renderHeroDetail(){
+     const selectedHeroDetail =  <div>
             <h2>{this.props.value.name} Details</h2>
             <div><span>id: </span>{this.props.value.id}</div>
             <div>
@@ -32,6 +27,15 @@ class HeroDetail extends Component {
         }else{
             return <div></div>
         }
+    
+}
+
+
+
+    
+  render() {
+      return this.renderHeroDetail()
+       
     
     
   }

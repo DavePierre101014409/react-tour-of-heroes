@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import HeroDetail from './hero-detail'
 import { HEROES } from '../mock-heroes';
 
 import './styles.css'
@@ -56,10 +58,12 @@ class HeroesComponent extends Component {
   
     renderHeroList(){
         const heroesItems = (this.state.heroes).map((hero) => 
-        <li key = {hero.id.toString()} onClick= { ()=> this.onSelectHero(hero.id)}> 
+        <li key = {hero.id.toString()} onClick= { ()=> this.onSelectHero(hero.id)} className> 
         <span className="badge">{hero.id}</span> {hero.name}
         </li>);
-      
+        
+
+    
     
 
         return heroesItems;
@@ -67,37 +71,12 @@ class HeroesComponent extends Component {
        
     }
 
-    renderHeroDetails(){
-
-        // The hero details from the first part
-        const selectedHeroDetail =  <div>
-            <h2>{this.state.selectedHero.name} Details</h2>
-            <div><span>id: </span>{this.state.selectedHero.id}</div>
-            <div>
-                <label>name:
-          <input type="text" value={this.state.selectedHero.name} onChange={e => this.handleChange(e.target.value)} placeholder="name" />
-                </label>
-            </div>
-
-        </div> 
-
-        // if there is a selectedHero selected then assigned it to the tobe return variabe 
-        if (this.state.selectedHero.id){
-            return selectedHeroDetail
-        }else{
-            return
-        }
-        
-
-
-      
-
-    }
+    
 
   render() {
 
     const heroesItems = this.renderHeroList()
-    const heroDetails = this.renderHeroDetails()
+   
     return (
       <div>
       <div >
@@ -108,8 +87,7 @@ class HeroesComponent extends Component {
       </div>
       
         <div>
-
-            {heroDetails}
+            <HeroDetail value = {this.state.selectedHero} onChange= {(e) => this.handleChange(e.target.value)}></HeroDetail>
         </div>
 
 

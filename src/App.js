@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {BrowserRouter , Route} from 'react-router-dom'
+
 import './App.css';
 
 import HeroesComponent from './components/heroes'
+
+const NewRoute = () => {
+  return(
+    <div>
+      <p> NEw rewrf</p>
+
+
+    </div>
+
+  );
+}
+
 
 class App extends Component {
 constructor(props){
@@ -27,7 +40,16 @@ handleChange(event) {
       <div>
       <h1>{this.state.title}</h1>
       < HeroesComponent/>
+
+
+       <BrowserRouter>
+        <Route path="/new" component = {NewRoute}/>
+      
+        </BrowserRouter>
+
       </div>
+
+     
       
     );
   }
